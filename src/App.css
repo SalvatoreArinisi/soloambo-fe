@@ -1,36 +1,58 @@
 /* App.css */
+.App {
+    background-color: black; /* Colore di sfondo di base */
+    background-image: url('./palline.svg'); /* Sfondo SVG */
+    background-repeat: no-repeat; /* Non ripetere l'immagine */
+    background-position: center; /* Centra l'immagine */
+    background-size: contain;
+    min-height: 100vh; /* Assicura che il div .App occupi almeno l'intera altezza della finestra */
+    display: flex; /* Permette di usare flexbox per allineare i contenuti */
+    flex-direction: column; /* Allinea i figli in colonna */
+    justify-content: center; /* Centra verticalmente i contenuti */
+    align-items: center; /* Centra orizzontalmente i contenuti */
+}
+
+.ButtonContainer {
+    display: flex;
+    gap: 20px;
+    margin-top: auto; /* Spinge i pulsanti verso il basso */
+    padding-bottom: 50px; /* Aggiunge spazio per evitare che siano troppo in basso */
+}
+
+button{
+    background-color: #4CAF50; /* Verde per tutti i pulsanti */
+    color: white;
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
-  /* Per tablet */
-  body {
-      padding: 10px;
-  }
+    /* Per tablet */
+    header {
+        font-size: 20px;
+    }
 
-  header {
-      font-size: 20px;
-  }
+    button {
+        font-size: 16px;
+    }
 
-  button {
-      font-size: 16px;
-  }
-
-  .AuthButton {
-      font-size: 16px;
-  }
+    .AuthButton {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 480px) {
-  /* Per mobile */
-  header {
-      font-size: 18px;
-  }
+    /* Per mobile */
+    header {
+        font-size: 18px;
+    }
 
-  button {
-      font-size: 14px;
-      padding: 8px 16px;
-  }
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
 
-  .AuthButton {
-      font-size: 14px;
-      padding: 8px 16px;
-  }
+    .AuthButton {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
 }

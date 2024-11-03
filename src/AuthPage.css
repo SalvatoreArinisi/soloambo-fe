@@ -3,19 +3,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end; /* Sposta i contenuti verso il basso */
     height: 100vh;
-    background-color: #f0f0f0;
 }
 
 h1 {
     margin-bottom: 20px;
+    color: white;
 }
 
-.ButtonContainer {
-    display: flex;
-    gap: 20px;
-}
 
 .AuthButton {
     padding: 10px 20px;
@@ -23,12 +19,10 @@ h1 {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #4CAF50; /* Verde per tutti i pulsanti */
-    color: white;
     transition: background-color 0.3s;
     margin: 20px 0; /* Aumentato per più spazio verticale tra i pulsanti */
 }
 
 .AuthButton:hover {
-    background-color: #45a049; /* Effetto hover */
+    background-color: #0e180f; /* Effetto hover */
 }

@@ -12,9 +12,8 @@ function EstrattoreAmbo() {
     };
 
     return (
-        <div className="AppContainer">
+        <div className="EstrattoreContainer">
             <header>Estrazione Lotto</header>
-            <button onClick={handleFetch}>Estrai un Ambo</button>
             {loading && <p>Caricamento...</p>}
             {giocata && (
                 <div>
@@ -32,6 +31,9 @@ function EstrattoreAmbo() {
                     <p>Messaggio: {message}</p>
                 </div>
             )}
+            <div className="ButtonContainer">
+                <button onClick={handleFetch}>Estrai un Ambo</button>
+            </div>
         </div>
     );
 }
