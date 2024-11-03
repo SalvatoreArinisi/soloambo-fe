@@ -1,0 +1,36 @@
+/* App.css */
+@media (max-width: 768px) {
+  /* Per tablet */
+  body {
+      padding: 10px;
+  }
+
+  header {
+      font-size: 20px;
+  }
+
+  button {
+      font-size: 16px;
+  }
+
+  .AuthButton {
+      font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Per mobile */
+  header {
+      font-size: 18px;
+  }
+
+  button {
+      font-size: 14px;
+      padding: 8px 16px;
+  }
+
+  .AuthButton {
+      font-size: 14px;
+      padding: 8px 16px;
+  }
+}
