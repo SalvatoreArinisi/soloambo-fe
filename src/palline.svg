@@ -1,0 +1,41 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definizione dei gradienti -->
+  <defs>
+    <radialGradient id="greenGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color: #5cb85c; stop-opacity: 1" />
+      <stop offset="100%" style="stop-color: #3e803e; stop-opacity: 1" />
+    </radialGradient>
+    <radialGradient id="redGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color: #ff4d4d; stop-opacity: 1" />
+      <stop offset="100%" style="stop-color: #cc0000; stop-opacity: 1" />
+    </radialGradient>
+    <radialGradient id="whiteGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color: #ffffff; stop-opacity: 1" />
+      <stop offset="100%" style="stop-color: #e0e0e0; stop-opacity: 1" />
+    </radialGradient>
+  </defs>
+
+  <!-- Pallina verde dietro a sinistra -->
+  <g transform="rotate(-30, 80, 100)">
+    <circle cx="80" cy="100" r="25" fill="url(#greenGradient)" stroke="black" stroke-width="2"/>
+    <circle cx="75" cy="100" r="15" fill="url(#whiteGradient)" /> <!-- Cerchio bianco spostato a sinistra, senza contorno -->
+    <text x="65" y="100" font-size="20" fill="black" text-anchor="middle" alignment-baseline="middle">5</text>
+  </g>
+
+  <!-- Pallina rossa dietro a destra -->
+  <g transform="rotate(30, 120, 100)">
+    <circle cx="120" cy="100" r="25" fill="url(#redGradient)" stroke="black" stroke-width="2"/>
+    <circle cx="125" cy="100" r="15" fill="white" /> <!-- Cerchio bianco come sfondo del numero -->
+    <text x="135" y="100" font-size="20" fill="black" text-anchor="middle" alignment-baseline="middle">3</text>
+  </g>
+  
+  <!-- Pallina centrale evidenziata -->
+  <circle cx="100" cy="100" r="30" fill="white" stroke="black" stroke-width="2"/> <!-- Pallina centrale bianca -->
+  <circle cx="100" cy="100" r="15" fill="black" /> <!-- Cerchio interno nero -->
+  <text x="100" y="105" font-size="20" fill="white" text-anchor="middle" alignment-baseline="middle">8</text>
+
+  <!-- Ombre per effetto 3D -->
+  <circle cx="80" cy="100" r="25" fill="rgba(0, 0, 0, 0.2)" transform="translate(2, 2)"/>
+  <circle cx="120" cy="100" r="25" fill="rgba(0, 0, 0, 0.2)" transform="translate(2, 2)"/>
+  <circle cx="100" cy="100" r="30" fill="rgba(0, 0, 0, 0.2)" transform="translate(2, 2)"/>
+</svg>
