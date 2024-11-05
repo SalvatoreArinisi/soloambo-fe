@@ -17,20 +17,20 @@
 
   <!-- Pallina verde dietro a sinistra -->
   <g transform="rotate(-30, 80, 100)">
-    <circle cx="80" cy="100" r="25" fill="url(#greenGradient)" stroke="black" stroke-width="2"/>
+    <circle cx="80" cy="100" r="25" fill="url(#greenGradient)" />
     <circle cx="75" cy="100" r="15" fill="url(#whiteGradient)" /> <!-- Cerchio bianco spostato a sinistra, senza contorno -->
     <text x="65" y="100" font-size="20" fill="black" text-anchor="middle" alignment-baseline="middle">5</text>
   </g>
 
   <!-- Pallina rossa dietro a destra -->
   <g transform="rotate(30, 120, 100)">
-    <circle cx="120" cy="100" r="25" fill="url(#redGradient)" stroke="black" stroke-width="2"/>
+    <circle cx="120" cy="100" r="25" fill="url(#redGradient)" />
     <circle cx="125" cy="100" r="15" fill="white" /> <!-- Cerchio bianco come sfondo del numero -->
     <text x="135" y="100" font-size="20" fill="black" text-anchor="middle" alignment-baseline="middle">3</text>
   </g>
   
   <!-- Pallina centrale evidenziata -->
-  <circle cx="100" cy="100" r="30" fill="white" stroke="black" stroke-width="2"/> <!-- Pallina centrale bianca -->
+  <circle cx="100" cy="100" r="30" fill="white" /> <!-- Pallina centrale bianca -->
   <circle cx="100" cy="100" r="15" fill="black" /> <!-- Cerchio interno nero -->
   <text x="100" y="105" font-size="20" fill="white" text-anchor="middle" alignment-baseline="middle">8</text>
 

@@ -15,6 +15,19 @@ class ApiService {
             throw error; 
         }
     }
+
+    async login(nickname, password) {
+        try {
+            const response = await axios.post('/api/user/login', {
+                nickname,
+                password,
+            });
+            return response.data;
+        } catch (error) {
+            console.error('Errore durante la chiamata di login:', error);
+            throw error;
+        }
+    }
 }
 
 const apiServiceInstance = new ApiService();  

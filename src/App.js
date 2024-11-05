@@ -1,17 +1,27 @@
+// src/App.js
 import React, { useState } from 'react';
 import AuthPage from './AuthPage';
-import EstrattoreAmbo from './EstrattoreAmbo'; // Importa il componente per l'estrazione dell'ambo
+import EstrattoreAmbo from './EstrattoreAmbo';
 import './App.css';
 
 function App() {
-    const [isAuthenticated, setIsAuthenticated] = useState(false); // Stato per la gestione dell'autenticazione
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [welcomeMessage, setWelcomeMessage] = useState(''); // Stato per il messaggio di benvenuto
+
+    const handleLoginSuccess = (message) => {
+        setIsAuthenticated(true);         // Imposta lo stato di autenticazione a true
+        setWelcomeMessage(message);       // Salva il messaggio di benvenuto
+    };
 
     return (
         <div className="App">
             {!isAuthenticated ? (
-                <AuthPage setIsAuthenticated={setIsAuthenticated} />
+                <AuthPage setIsAuthenticated={handleLoginSuccess} />
             ) : (
-                <EstrattoreAmbo />
+                <>
+                    {welcomeMessage && <p className="WelcomeMessage">{welcomeMessage}</p>}
+                    <EstrattoreAmbo />
+                </>
             )}
         </div>
     );

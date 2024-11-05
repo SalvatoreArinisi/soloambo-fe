@@ -1,5 +1,18 @@
 /* App.css */
+.WelcomeMessage {
+    position: fixed;  /* Posiziona il messaggio in modo fisso */
+    top: 40px;        /* Posizionalo a 40px dall'alto della finestra */
+    left: 50%;        /* Centra il messaggio orizzontalmente */
+    transform: translateX(-50%); /* Centra esattamente il messaggio */
+    background-color: rgba(0, 0, 0, 0.7); /* Sfondo semi-trasparente */
+    padding: 10px 20px; /* Padding per un po' di spazio interno */
+    border-radius: 5px;  /* Rende i bordi arrotondati */
+    z-index: 1000;    /* Assicurati che il messaggio sia visibile sopra gli altri contenuti */
+    color:bisque;
+}
+
 .App {
+    padding-top: 60px;
     background-color: black; /* Colore di sfondo di base */
     background-image: url('./palline.svg'); /* Sfondo SVG */
     background-repeat: no-repeat; /* Non ripetere l'immagine */

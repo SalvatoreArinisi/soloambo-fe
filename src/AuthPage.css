@@ -5,11 +5,11 @@
     align-items: center;
     justify-content: flex-end; /* Sposta i contenuti verso il basso */
     height: 100vh;
+    color:bisque;
 }
 
 h1 {
     margin-bottom: 20px;
-    color: white;
 }
 
 
