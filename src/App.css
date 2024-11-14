@@ -12,17 +12,34 @@
 }
 
 .App {
-    padding-top: 60px;
+    position: relative; /* Necessario per il posizionamento assoluto di ::before */
+    padding-top: 0;
     background-color: black; /* Colore di sfondo di base */
-    background-image: url('./palline.svg'); /* Sfondo SVG */
-    background-repeat: no-repeat; /* Non ripetere l'immagine */
-    background-position: center; /* Centra l'immagine */
-    background-size: contain;
     min-height: 100vh; /* Assicura che il div .App occupi almeno l'intera altezza della finestra */
-    display: flex; /* Permette di usare flexbox per allineare i contenuti */
-    flex-direction: column; /* Allinea i figli in colonna */
-    justify-content: center; /* Centra verticalmente i contenuti */
-    align-items: center; /* Centra orizzontalmente i contenuti */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.App::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('./palline.svg'); /* Sfondo SVG */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 1; /* Opacità default */
+    z-index: -1; /* Posiziona lo sfondo sotto al contenuto dell'elemento .App */
+}
+
+.App.dimmed-background::before {
+    opacity: 0.2; /* Opacità ridotta di palline.svg */
 }
 
 .ButtonContainer {

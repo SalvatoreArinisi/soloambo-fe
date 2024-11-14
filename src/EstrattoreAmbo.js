@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { estraiAmbi } from './AmbiController'; // Importa dal controller
 import './Estrattore.css';
 
-function EstrattoreAmbo() {
+function EstrattoreAmbo({ setOpacityToBI }) {
     const [giocata, setGiocata] = useState(null);
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
 
     const handleFetch = () => {
+        setOpacityToBI(true)
         estraiAmbi(setGiocata, setMessage, setLoading); // Chiama la funzione dal controller
     };
 
@@ -16,7 +17,7 @@ function EstrattoreAmbo() {
             <header>Estrazione Lotto</header>
             {loading && <p>Caricamento...</p>}
             {giocata && (
-                <div>
+                <div className="giocata">
                     <h2>Ruota: {giocata.ruota}</h2>
                     <h3>Ambi:</h3>
                     <ul>
@@ -32,7 +33,7 @@ function EstrattoreAmbo() {
                 </div>
             )}
             <div className="ButtonContainer">
-                <button onClick={handleFetch}>Estrai un Ambo</button>
+                <button onClick={handleFetch}>Estrai Ambi</button>
             </div>
         </div>
     );

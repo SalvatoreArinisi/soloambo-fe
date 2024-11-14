@@ -8,6 +8,11 @@
     position: relative; /* Per posizionare correttamente la barra superiore */
 }
 
+.giocata {
+    margin-top: auto;
+    color: bisque;
+}
+
 header {
     position: fixed;
     top: 0;
