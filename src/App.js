@@ -1,7 +1,7 @@
 // src/App.js
 import React, { useState } from 'react';
-import AuthPage from './AuthPage';
-import EstrattoreAmbo from './EstrattoreAmbo';
+import AuthPage from './component/AuthPage';
+import EstrattoreAmbo from './component/EstrattoreAmbo';
 import './App.css';
 
 function App() {

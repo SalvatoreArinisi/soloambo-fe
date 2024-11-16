@@ -1,5 +1,4 @@
-// src/UserController.js
-import ApiService from './ApiService';
+import ApiService from '../services/ApiService';
 
 class UserController {
     async login(nickname, password) {
@@ -11,10 +10,8 @@ class UserController {
                 loginResponse.message = response.message;
             }
         } catch (error) {
-            console.error(error);
-            const message = error.response?.data || 'Errore sconosciuto';
             loginResponse.status = false;
-            loginResponse.message = message;
+            loginResponse.message = 'Servizio non disponibile, riprova più tardi';
         }
         return loginResponse;
     }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { estraiAmbi } from './AmbiController'; // Importa dal controller
+import { estraiAmbi } from '../controller/AmbiController'; // Importa dal controller
 import './Estrattore.css';
 
 function EstrattoreAmbo({ setOpacityToBI }) {

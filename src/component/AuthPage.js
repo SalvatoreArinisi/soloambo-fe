@@ -1,7 +1,6 @@
-// src/AuthPage.js
 import React, { useState } from 'react';
 import './AuthPage.css';
-import userController from './UserController'; 
+import userController from '../controller/UserController'; 
 
 function AuthPage({ setIsAuthenticated }) {
     const [errorMessage, setErrorMessage] = useState('');
@@ -16,7 +15,7 @@ function AuthPage({ setIsAuthenticated }) {
             setIsAuthenticated(loginResponse.message);  // Passa il messaggio di benvenuto
             setErrorMessage('');  // Resetta eventuali errori precedenti
         } else {
-            setErrorMessage(`Errore durante il login. ${loginResponse.message}`);
+            setErrorMessage(loginResponse.message);
         }
 
     };

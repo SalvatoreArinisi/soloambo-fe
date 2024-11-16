@@ -1,5 +1,4 @@
-// src/AmbiController.js
-import ApiService from './ApiService';
+import ApiService from '../services/ApiService';
 
 // Funzione per estrarre gli ambi
 export async function estraiAmbi(setGiocata, setMessage, setLoading) {
