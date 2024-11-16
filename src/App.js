@@ -1,8 +1,10 @@
 // src/App.js
 import React, { useState } from 'react';
+import './App.css';
 import AuthPage from './component/AuthPage';
 import EstrattoreAmbo from './component/EstrattoreAmbo';
-import './App.css';
+import RotatingBall from "./component/RotatingBall";
+
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -24,6 +26,7 @@ function App() {
                     <EstrattoreAmbo setOpacityToBI={setOpacityToBI}/>
                 </>
             )}
+            <RotatingBall />
         </div>
     );
 }
