@@ -4,8 +4,10 @@ import userController from '../controller/UserController';
 
 function AuthPage({ setIsAuthenticated, onLoginStart }) {
     const [errorMessage, setErrorMessage] = useState('');
+    const [isLoginDisabled, setIsLoginDisabled] = useState(false);
 
     const handleLogin = async () => {
+        setIsLoginDisabled(true); // Disabilita il pulsante Login
         setErrorMessage(''); // Resetta eventuali errori precedenti
         onLoginStart(true); // Mostra RotatingBall
 
@@ -19,6 +21,7 @@ function AuthPage({ setIsAuthenticated, onLoginStart }) {
             setErrorMessage(loginResponse.message);
         }
         onLoginStart(false); 
+        setIsLoginDisabled(false); // Riabilita il pulsante in caso di errore
     };
 
     const handleRegistration = () => {
@@ -30,7 +33,8 @@ function AuthPage({ setIsAuthenticated, onLoginStart }) {
             <h1>Benvenuto su SoloAmbo</h1>
             {errorMessage && <p className="ErrorMessage">{errorMessage}</p>}
             <div className="ButtonContainer">
-                <button onClick={handleLogin} className="AuthButton">Login</button>
+                <button style={{pointerEvents: isLoginDisabled ? 'none' : 'auto', opacity: isLoginDisabled ? 0.5 : 1,cursor: isLoginDisabled ? 'not-allowed' : 'pointer'}} 
+                        onClick={handleLogin} className="AuthButton">Login</button>
                 <button onClick={handleRegistration} className="AuthButton">Registrazione</button>
             </div>
         </div>

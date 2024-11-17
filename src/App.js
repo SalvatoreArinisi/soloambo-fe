@@ -16,6 +16,7 @@ function App() {
     };
 
     const handleLoginStart = (stato) => {
+        setOpacityToBI(stato);
         setIsLoading(stato); // Attiva/disattiva RotatingBall
     };
 
