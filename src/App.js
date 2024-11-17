@@ -8,12 +8,12 @@ import RotatingBall from "./component/RotatingBall";
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [welcomeMessage, setWelcomeMessage] = useState(''); // Stato per il messaggio di benvenuto
+    const [welcomeMessage, setLoginMessage] = useState(''); // Stato per il messaggio di benvenuto
     const [opacityToBI, setOpacityToBI] = useState(false); // Stato per l'opacità dell'immagine di background
 
     const handleLoginSuccess = (message) => {
         setIsAuthenticated(true);         // Imposta lo stato di autenticazione a true
-        setWelcomeMessage(message);       // Salva il messaggio di benvenuto
+        setLoginMessage(message);       // mostra il messaggio
     };
 
     return (
