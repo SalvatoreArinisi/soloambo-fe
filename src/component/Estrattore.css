@@ -10,7 +10,7 @@
 
 .giocata {
     margin-top: auto;
-    color: bisque;
+    color: #ffffff;
 }
 
 header {
@@ -18,8 +18,8 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #28a745;
+    color: #ffffff;
     text-align: center;
     padding: 10px;
     font-size: 24px;

@@ -14,7 +14,7 @@ function EstrattoreAmbo({ setOpacityToBI }) {
 
     return (
         <div className="EstrattoreContainer">
-            <header>Estrazione Lotto</header>
+            <header>Gioca i tuoi ambi!</header>
             {loading && <p>Caricamento...</p>}
             {giocata && (
                 <div className="giocata">

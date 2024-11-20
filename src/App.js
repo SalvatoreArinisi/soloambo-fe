@@ -3,6 +3,14 @@ import './App.css';
 import AuthPage from './component/AuthPage';
 import EstrattoreAmbo from './component/EstrattoreAmbo';
 import RotatingBall from "./component/RotatingBall";
+import Ambi from "./component/Ambi";
+
+const ambiData = [
+    { num1: 53, num2: 63 },
+    { num1: 63, num2: 72 },
+    { num1: 71, num2: 90 },
+    { num1: 61, num2: 85 },
+];
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -31,6 +39,7 @@ function App() {
                 </>
             )}
             {isLoading && <RotatingBall />}
+            <Ambi ambi={ambiData} />
         </div>
     );
 }

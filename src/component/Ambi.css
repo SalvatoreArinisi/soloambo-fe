@@ -1,0 +1,107 @@
+/* Contenitore generale */
+.ambi-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Distanza tra gli ambi */
+    margin: 20px;
+    height: 100vh; /* Per animazione centrata */
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Contenitore per coppia di palline */
+.ambo-pair {
+    display: flex;
+    gap: 20px; /* Distanza tra palline di un ambo */
+    opacity: 0; /* Palline invisibili fino a quando l'animazione parte */
+    position: relative;
+}
+
+/* Palline */
+.ball {
+    width: 50px;
+    height: 50px;
+    background-color: #4caf50; /* Verde */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border: 2px solid #3e8e41;
+    position: relative;
+    overflow: hidden; /* Limita il contenuto al cerchio */
+}
+
+.ball-number {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transform-origin: center; /* Punto centrale per la rotazione */
+    animation: none; /* Nessuna animazione per default */
+}
+
+/* Animazione per le palline che arrivano da sinistra */
+.move-from-left {
+    animation: move-left-to-center 1.0s ease-out forwards;
+}
+
+/* Animazione per le palline che arrivano da destra */
+.move-from-right {
+    animation: move-right-to-center 1.0s ease-out forwards;
+}
+
+/* Da sinistra al centro */
+@keyframes move-left-to-center {
+    0% {
+        transform: translateX(-100vw);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Da destra al centro */
+@keyframes move-right-to-center {
+    0% {
+        transform: translateX(100vw);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Tremolio */
+@keyframes shake {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+    25% {
+        transform: translateX(-5px) rotate(-5deg);
+    }
+    50% {
+        transform: translateX(5px) rotate(5deg);
+    }
+    75% {
+        transform: translateX(-3px) rotate(-3deg);
+    }
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+.shake {
+    animation: shake 4s ease-in-out;
+}
+
+

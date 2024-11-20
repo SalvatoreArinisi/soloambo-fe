@@ -33,7 +33,7 @@ function AuthPage({ setIsAuthenticated, onLoginStart }) {
             <h1>Benvenuto su SoloAmbo</h1>
             {errorMessage && <p className="ErrorMessage">{errorMessage}</p>}
             <div className="ButtonContainer">
-                <button style={{pointerEvents: isLoginDisabled ? 'none' : 'auto', opacity: isLoginDisabled ? 0.5 : 1,cursor: isLoginDisabled ? 'not-allowed' : 'pointer'}} 
+                <button style={{'pointer-events': isLoginDisabled ? 'none' : 'auto', opacity: isLoginDisabled ? 0.5 : 1,cursor: isLoginDisabled ? 'not-allowed' : 'pointer'}} 
                         onClick={handleLogin} className="AuthButton">Login</button>
                 <button onClick={handleRegistration} className="AuthButton">Registrazione</button>
             </div>
