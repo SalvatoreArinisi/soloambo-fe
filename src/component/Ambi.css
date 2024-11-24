@@ -5,7 +5,6 @@
     align-items: center;
     gap: 30px; /* Distanza tra gli ambi */
     margin: 20px;
-    height: 100vh; /* Per animazione centrata */
     justify-content: center;
     overflow: hidden;
 }

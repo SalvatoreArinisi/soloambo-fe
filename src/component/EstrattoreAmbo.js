@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { estraiAmbi } from '../controller/AmbiController'; // Importa dal controller
 import './Estrattore.css';
+import Ambi from "./Ambi";
 
-function EstrattoreAmbo({ setOpacityToBI }) {
+function EstrattoreAmbo({ setAmbi }) {
     const [giocata, setGiocata] = useState(null);
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
 
-    const handleFetch = () => {
-        setOpacityToBI(true)
+    const handleFetchAmbi = () => {
+        setAmbi(true)
         estraiAmbi(setGiocata, setMessage, setLoading); // Chiama la funzione dal controller
     };
 
@@ -18,22 +19,13 @@ function EstrattoreAmbo({ setOpacityToBI }) {
             {loading && <p>Caricamento...</p>}
             {giocata && (
                 <div className="giocata">
-                    <h2>Ruota: {giocata.ruota}</h2>
-                    <h3>Ambi:</h3>
-                    <ul>
-                        {giocata.ambi.map((ambo, index) => (
-                            <li key={index}>
-                                {ambo.num1} e {ambo.num2}
-                            </li>
-                        ))}
-                    </ul>
-                    <p>Data Estrazione: {giocata.dataEstrazione}</p>
-                    <p>Importo Consigliato: {giocata.importoConsigliato}</p>
-                    <p>Messaggio: {message}</p>
+                    <h2>giocali sulla ruota di {giocata.ruota} il {giocata.dataEstrazione}</h2>                 
+                    <Ambi ambi={giocata.ambi} />
+                    <p>{message}</p>
                 </div>
             )}
             <div className="ButtonContainer">
-                <button onClick={handleFetch}>Estrai Ambi</button>
+                <button onClick={handleFetchAmbi}>Estrai Ambi</button>
             </div>
         </div>
     );

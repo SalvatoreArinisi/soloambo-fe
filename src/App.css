@@ -1,3 +1,7 @@
+body{
+    text-align: center;
+}
+
 /* App.css */
 .WelcomeMessage {
     position: fixed;  /* Posiziona il messaggio in modo fisso */
