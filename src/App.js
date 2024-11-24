@@ -8,27 +8,22 @@ import RotatingBall from "./component/RotatingBall";
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [welcomeMessage, setLoginMessage] = useState(''); // Stato per il messaggio di benvenuto
-    const [ambiCaricati, setAmbi] = useState(false); // Stato per evento di caricamento ambi
-    const [isLoading, setIsLoading] = useState(false); // Stato per gestire il animazione di caricamento (RotatingBall)
+    const [isLoading, setLoading] = useState(false); // Stato per eventi di caricamento
+    const [ambiCaricati, setAmbiCaricati] = useState(false); // quando gli ambi sono caricati completamente 
 
     const handleLoginSuccess = (message) => {
         setIsAuthenticated(true); // Imposta lo stato di autenticazione a true
         setLoginMessage(message); // Mostra il messaggio
     };
 
-    const handleLoginStart = (stato) => {
-        setAmbi(stato);
-        setIsLoading(stato); // Attiva/disattiva RotatingBall
-    };
-
     return (
-        <div className={`App ${ambiCaricati ? 'dimmed-background' : ''}`}>
+        <div className={`App ${isLoading || ambiCaricati ? 'dimmed-background' : ''}`}>
             {!isAuthenticated ? (
-                <AuthPage setIsAuthenticated={handleLoginSuccess} onLoginStart={handleLoginStart} />
+                <AuthPage setIsAuthenticated={handleLoginSuccess} setLoading={setLoading} />
             ) : (
                 <>
                     {!ambiCaricati && welcomeMessage && <p className="WelcomeMessage">{welcomeMessage}</p>}
-                    <EstrattoreAmbo setAmbi={setAmbi} />
+                    <EstrattoreAmbo setLoading={setLoading} setAmbiCaricati={setAmbiCaricati}/>
                 </>
             )}
             {isLoading && <RotatingBall />}

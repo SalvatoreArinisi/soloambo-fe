@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import './AuthPage.css';
 import userController from '../controller/UserController'; 
 
-function AuthPage({ setIsAuthenticated, onLoginStart }) {
+function AuthPage({ setIsAuthenticated, setLoading }) {
     const [errorMessage, setErrorMessage] = useState('');
     const [isLoginDisabled, setIsLoginDisabled] = useState(false);
 
     const handleLogin = async () => {
         setIsLoginDisabled(true); // Disabilita il pulsante Login
         setErrorMessage(''); // Resetta eventuali errori precedenti
-        onLoginStart(true); // Mostra RotatingBall
+        setLoading(true); 
 
         const nickname = "Salvatore";
         const password = "123";
@@ -20,7 +20,7 @@ function AuthPage({ setIsAuthenticated, onLoginStart }) {
         } else {
             setErrorMessage(loginResponse.message);
         }
-        onLoginStart(false); 
+        setLoading(false); 
         setIsLoginDisabled(false); // Riabilita il pulsante in caso di errore
     };
 
