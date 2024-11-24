@@ -1,8 +1,16 @@
 import axios from 'axios';
 
 class ApiService {
+
+    async delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     async getAmbi() {
         try {
+            
+            await this.delay(3000); 
+
             const response = await axios.get('/api/ambo', {
                 headers: {
                     'x-user-nickname': 'salvatore',

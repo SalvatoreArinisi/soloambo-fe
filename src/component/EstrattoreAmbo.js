@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { estraiAmbi } from '../controller/AmbiController';
 import './Estrattore.css';
 import Ambi from "./Ambi";
+import Utility from '../Utility';
 
 function EstrattoreAmbo({ setLoading,setAmbiCaricati}) {
     const [giocata, setGiocata] = useState(null);
@@ -16,9 +17,9 @@ function EstrattoreAmbo({ setLoading,setAmbiCaricati}) {
             <header>Gioca i tuoi ambi!</header>
             {giocata && (
                 <div className="giocata">
-                    <h2>giocali sulla ruota di {giocata.ruota} il {giocata.dataEstrazione}</h2>                 
+                    <h2 className="message-down">giocali sulla ruota di {giocata.ruota} il {Utility.estraiGiornoEMese(giocata.dataEstrazione)}</h2>                 
                     <Ambi ambi={giocata.ambi} />
-                    <p>{message}</p>
+                    <p className="message-up">{message}</p>
                 </div>
             )}
             <div className="ButtonContainer">

@@ -37,3 +37,39 @@ button {
 button:hover {
     background-color: #0e180f; /* Effetto hover */
 }
+
+.message-down {
+    position: relative;
+    opacity: 0;
+    transform: translateY(-100px); /* Partenza fuori dallo schermo */
+    animation: slideDown 2s ease-in-out forwards;
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px); /* Partenza */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Arrivo */
+    }
+}
+
+.message-up {
+    position: relative;
+    opacity: 0;
+    transform: translateY(100px); /* Partenza dal basso */
+    animation: slideUp 2s ease-in-out forwards;
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100px); /* Partenza */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Arrivo */
+    }
+}

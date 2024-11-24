@@ -4,6 +4,7 @@ body{
 
 /* App.css */
 .WelcomeMessage {
+    width: 300px;
     position: fixed;  /* Posiziona il messaggio in modo fisso */
     top: 40px;        /* Posizionalo a 40px dall'alto della finestra */
     left: 50%;        /* Centra il messaggio orizzontalmente */

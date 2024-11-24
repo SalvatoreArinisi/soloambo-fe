@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messaggio Animato</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #282c34;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .message {
+            position: relative;
+            opacity: 0;
+            transform: translateY(-100px); /* Partenza fuori dallo schermo */
+            animation: slideIn 2s ease-in-out forwards;
+        }
+
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-100px); /* Partenza */
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0); /* Arrivo */
+            }
+        }
+    </style>
+</head>
+<body>
+    <p class="message">Ciao</p>
+</body>
+</html>
