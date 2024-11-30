@@ -9,14 +9,25 @@ header {
     right: 0;
     background-color: #28a745;
     color: #ffffff;
-    padding: 10px;
+    padding: 5px;
     font-size: 24px;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+}
+
+header p {
+    position: absolute; /* Posizionamento assoluto per il centro */
+    left: 50%; /* Sposta il centro del contenitore */
+    transform: translateX(-50%); /* Centra orizzontalmente il paragrafo */
+    margin: 0; /* Elimina margini */
 }
 
 /* Css header button */ 
 
 .header-button{
-    float: right;
+    margin-left: auto; /* Spinge il pulsante il più a destra possibile */
+    float: right; /* Float per compatibilità */
     background-color: burlywood;
     color: white
 }
@@ -157,6 +168,11 @@ button{
     /* Per mobile */
     header {
         font-size: 18px;
+        padding: 30px;
+    }
+
+    header p {
+     left:30%;
     }
 
     button {
