@@ -69,15 +69,23 @@ header {
 
 /* fine stili per la modale */
 
+.benvenutoSuSoloAmbo{
+    margin: 0; /* Elimina margini predefiniti */
+    font-size: 24px; /* Dimensione del testo */
+    font-weight: bold; /* Grassetto */
+    line-height: 1; /* Altezza della riga uguale alla dimensione del testo */
+}
+
+
 .WelcomeMessage {
     width: 300px;
-    position: fixed;  /* Posiziona il messaggio in modo fisso */
-    top: 40px;        /* Posizionalo a 40px dall'alto della finestra */
-    left: 50%;        /* Centra il messaggio orizzontalmente */
-    transform: translateX(-50%); /* Centra esattamente il messaggio */
+    position: fixed;  
+    top: 50px;        
+    left: 50%;        
+    transform: translateX(-50%); 
     background-color: rgba(0, 0, 0, 0.7); /* Sfondo semi-trasparente */
-    padding: 10px 20px; /* Padding per un po' di spazio interno */
-    border-radius: 5px;  /* Rende i bordi arrotondati */
+    padding: 10px 20px; 
+    border-radius: 5px;  
     z-index: 1000;    /* Assicurati che il messaggio sia visibile sopra gli altri contenuti */
     color:#ffffff;
 }

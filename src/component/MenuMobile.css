@@ -12,11 +12,12 @@
         background-color:burlywood;
         padding: 5px;
         border-radius: 5px;
+        background-color: rgba(201, 193, 193, 0.5); /* Sfondo nero con opacità al 50% */
     }
     .mobile-menu button {
         color: white;
-        background-color: black ;
-        opacity: 1;
+        background-color: burlywood; ;
+        z-index: 1; /* Assicurati che sia sopra l'opacità del background */
     }
     .mobile-menu ul {
         list-style: none;

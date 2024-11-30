@@ -22,7 +22,7 @@ function App() {
     return (
         <div className={`App ${isLoading || ambiCaricati ? 'dimmed-background' : ''}`}>
             <header>
-                Benvenuto su SoloAmbo
+                <p className="benvenutoSuSoloAmbo">Benvenuto su SoloAmbo</p>
                 <button
                     onClick={() => setShowPrivacy(true)}  // Apri la modale
                     className="header-button"
