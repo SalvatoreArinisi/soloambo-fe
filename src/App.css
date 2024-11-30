@@ -2,7 +2,73 @@ body{
     text-align: center;
 }
 
-/* App.css */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #28a745;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 24px;
+}
+
+/* Css header button */ 
+
+.header-button{
+    float: right;
+    background-color: burlywood;
+    color: white
+}
+
+/* Stili per la modale */
+/* Modifica per la modale */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);  /* Sfondo scuro semitrasparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Contenuto della modale con una dimensione fissa e scorrimento verticale */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80vh; /* Limita l'altezza della modale */
+    overflow-y: auto;  /* Aggiungi una barra di scorrimento verticale quando necessario */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Aggiungi uno spazio per il bottone di chiusura e assicurati che il contenuto scorra */
+.close-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.close-btn:hover {
+    background-color: #d32f2f;
+}
+
+
+/* fine stili per la modale */
+
 .WelcomeMessage {
     width: 300px;
     position: fixed;  /* Posiziona il messaggio in modo fisso */
@@ -66,6 +132,10 @@ button{
         font-size: 20px;
     }
 
+    .header-button {
+        display: none; 
+    }
+
     button {
         font-size: 16px;
     }
@@ -91,3 +161,4 @@ button{
         padding: 8px 16px;
     }
 }
+

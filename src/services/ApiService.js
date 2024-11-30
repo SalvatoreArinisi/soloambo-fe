@@ -36,6 +36,16 @@ class ApiService {
             throw error;
         }
     }
+
+    async getPrivacy() {
+        try {
+            const response = await axios.get('/privacy.json', {});
+            return response.data;
+        } catch (error) {
+            console.error('Errore durante la chiamata Axios:', error);
+            throw error; 
+        }
+    }
 }
 
 const apiServiceInstance = new ApiService();  

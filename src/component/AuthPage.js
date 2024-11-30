@@ -30,7 +30,6 @@ function AuthPage({ setIsAuthenticated, setLoading }) {
 
     return (
         <div className="AuthContainer">
-            <h1>Benvenuto su SoloAmbo</h1>
             {errorMessage && <p className="ErrorMessage">{errorMessage}</p>}
             <div className="ButtonContainer">
                 <button style={{'pointer-events': isLoginDisabled ? 'none' : 'auto', opacity: isLoginDisabled ? 0.5 : 1,cursor: isLoginDisabled ? 'not-allowed' : 'pointer'}} 

@@ -14,7 +14,6 @@ function EstrattoreAmbo({ setLoading,setAmbiCaricati}) {
 
     return (
         <div className="EstrattoreContainer">
-            <header>Gioca i tuoi ambi!</header>
             {giocata && (
                 <div className="giocata">
                     <h2 className="message-down">giocali sulla ruota di {giocata.ruota} il {Utility.estraiGiornoEMese(giocata.dataEstrazione)}</h2>                 

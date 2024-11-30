@@ -16,5 +16,15 @@ export async function estraiAmbi(setGiocata, setMessage, setLoading, setAmbiCari
     }
 }
 
+export async function getPrivacy(setPrivacyData) {
+    try{
+        const jsonContent = await ApiService.getPrivacy();
+        setPrivacyData(jsonContent);
+    }catch (error) {
+        console.error('Errore durante caricamento pagina privacy:', error);
+        setPrivacyData("Errore durante caricamneto privacy");
+    }
+}
+
 // Qui puoi aggiungere altre funzioni per future esigenze
 // export async function altraFunzione() { ... }
