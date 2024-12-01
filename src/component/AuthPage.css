@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end; /* Sposta i contenuti verso il basso */
-    height: 100vh;
+    height: 80vh;
     color:#ffffff;
 }
 
