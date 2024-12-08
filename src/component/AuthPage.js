@@ -1,18 +1,48 @@
 import React, { useState } from 'react';
 import './AuthPage.css';
+import '../App.css';
 import userController from '../controller/UserController'; 
 
 function AuthPage({ setIsAuthenticated, setLoading }) {
-    const [errorMessage, setErrorMessage] = useState('');
-    const [isLoginDisabled, setIsLoginDisabled] = useState(false);
+    const [isLoginFormVisible, setIsLoginFormVisible] = useState(false);
 
-    const handleLogin = async () => {
-        setIsLoginDisabled(true); // Disabilita il pulsante Login
-        setErrorMessage(''); // Resetta eventuali errori precedenti
+    const handleRegistration = () => {
+        console.log('Registration clicked');
+    };
+
+    return (
+        <div className="AuthContainer">
+            {!isLoginFormVisible ? (
+            <div className="ButtonContainer">
+                <button  
+                        onClick={() => setIsLoginFormVisible(true)} className="AuthButton">Login
+                </button>
+                <button 
+                        onClick={handleRegistration} className="AuthButton">Registrazione
+
+                </button>
+            </div>
+             ) : (
+                <LoginForm setIsAuthenticated={setIsAuthenticated} setLoading={setLoading} setIsLoginFormVisible={setIsLoginFormVisible}/>
+            )}
+        </div>
+    );
+}
+
+
+
+function LoginForm({ setIsAuthenticated, setLoading, setIsLoginFormVisible }) {
+
+    const [errorMessage, setErrorMessage] = useState('');
+    const [nickname, setNickname] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleAuthenticateClick = async () =>  {
+        
+        setErrorMessage(''); // Resetta eventuali errori precedenti del componente LoginForm
+               
         setLoading(true); 
 
-        const nickname = "Salvatore";
-        const password = "123";
         const loginResponse = await userController.login(nickname, password);
        
         if (loginResponse.status) {
@@ -21,20 +51,43 @@ function AuthPage({ setIsAuthenticated, setLoading }) {
             setErrorMessage(loginResponse.message);
         }
         setLoading(false); 
-        setIsLoginDisabled(false); // Riabilita il pulsante in caso di errore
+
     };
 
-    const handleRegistration = () => {
-        console.log('Registration clicked');
-    };
+    const onCancel = ()=>{
+        setIsLoginFormVisible(false);
+    }
 
     return (
-        <div className="AuthContainer">
+        <div className="LoginFormContainer">
             {errorMessage && <p className="ErrorMessage">{errorMessage}</p>}
+            <div className="InputContainer">
+                <label>Nickname:</label>
+                <input
+                    type="text"
+                    value={nickname}
+                    onChange={(e) => setNickname(e.target.value)}
+                    className="AuthInput"
+                    placeholder="Inserisci il nickname"
+                />
+            </div>
+            <div className="InputContainer">
+                <label>Password:</label>
+                <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="AuthInput"
+                    placeholder="Inserisci la password"
+                />
+            </div>
             <div className="ButtonContainer">
-                <button style={{'pointer-events': isLoginDisabled ? 'none' : 'auto', opacity: isLoginDisabled ? 0.5 : 1,cursor: isLoginDisabled ? 'not-allowed' : 'pointer'}} 
-                        onClick={handleLogin} className="AuthButton">Login</button>
-                <button onClick={handleRegistration} className="AuthButton">Registrazione</button>
+                <button onClick={handleAuthenticateClick} className="AuthButton">
+                    Autenticati
+                </button>
+                <button onClick={onCancel} className="AuthButton">
+                    Annulla
+                </button>
             </div>
         </div>
     );
