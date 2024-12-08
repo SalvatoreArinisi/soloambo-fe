@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './App.css';
 import AuthPage from './component/AuthPage';
 import EstrattoreAmbo from './component/EstrattoreAmbo';
@@ -14,7 +14,11 @@ function App() {
     const [ambiCaricati, setAmbiCaricati] = useState(false); // quando gli ambi sono caricati completamente 
     const [showPrivacy, setShowPrivacy] = useState(false);
 
-    const handleLoginSuccess = (message) => {
+    useEffect(() => {
+        setIsAuthenticated(localStorage.getItem('nickname') !== 'null' && localStorage.getItem('password') !== 'null');
+    }, []); 
+
+    const handleLogin = (message) => {
         setIsAuthenticated(true); // Imposta lo stato di autenticazione a true
         setLoginMessage(message); // Mostra il messaggio
     };
@@ -42,11 +46,11 @@ function App() {
                 </div>
             )}
             {!isAuthenticated ? (
-                <AuthPage setIsAuthenticated={handleLoginSuccess} setLoading={setLoading} />
+                <AuthPage setIsAuthenticated={handleLogin} setLoading={setLoading} />
             ) : (
                 <>
                     {!ambiCaricati && welcomeMessage && <p className="WelcomeMessage">{welcomeMessage}</p>}
-                    <EstrattoreAmbo setLoading={setLoading} setAmbiCaricati={setAmbiCaricati} />
+                    <EstrattoreAmbo setIsAuthenticated={setIsAuthenticated} setLoading={setLoading} setAmbiCaricati={setAmbiCaricati} />
                 </>
             )}
             {isLoading && <RotatingBall />}

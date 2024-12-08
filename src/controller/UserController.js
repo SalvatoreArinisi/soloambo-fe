@@ -11,7 +11,12 @@ class UserController {
             }
         } catch (error) {
             loginResponse.status = false;
-            loginResponse.message = 'Servizio non disponibile, riprova più tardi';
+            if(error.status === 404){
+                loginResponse.message = error.response.data;
+            }else{
+                loginResponse.message = 'Servizio non disponibile, riprova più tardi';
+            }
+            
         }
         return loginResponse;
     }

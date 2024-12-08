@@ -8,18 +8,19 @@ class ApiService {
 
     async getAmbi() {
         try {
-            
             await this.delay(3000); 
 
             const response = await axios.get('/api/ambo', {
                 headers: {
-                    'x-user-nickname': 'salvatore',
-                    'x-user-password': '123',
+                    'x-user-nickname': localStorage.getItem('nickname'),
+                    'x-user-password': localStorage.getItem('password')
                 },
             });
             return response.data;
         } catch (error) {
             console.error('Errore durante la chiamata Axios:', error);
+            localStorage.setItem('nickname',null);
+            localStorage.setItem('password',null);
             throw error; 
         }
     }

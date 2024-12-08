@@ -1,7 +1,7 @@
 import ApiService from '../services/ApiService';
 
 // Funzione per estrarre gli ambi
-export async function estraiAmbi(setGiocata, setMessage, setLoading, setAmbiCaricati) {
+export async function estraiAmbi(setGiocata, setMessage, setMessageError, setLoading, setAmbiCaricati) {
     setLoading(true);
     try {
         const data = await ApiService.getAmbi();
@@ -9,8 +9,9 @@ export async function estraiAmbi(setGiocata, setMessage, setLoading, setAmbiCari
         setMessage(data.message);
         setAmbiCaricati(true);
     } catch (error) {
-        console.error('Errore durante il recupero dei dati:', error);
-        setMessage('Si è verificato un errore durante il recupero dei dati.');
+        let descError = error.status === 401?'utente non riconosciuto':'errore nel recupero dei dati, riprova più tardi';
+        let messageError = [error.status,descError]
+        setMessageError(messageError);
     } finally {
         setLoading(false);
     }

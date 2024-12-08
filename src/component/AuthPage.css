@@ -35,6 +35,10 @@
     background-color: rgb(26, 24, 24);
 }
 
+.opacizza {
+    opacity: 0.2; 
+}
+
 .InputContainer {
     display: flex;
     flex-direction: column;

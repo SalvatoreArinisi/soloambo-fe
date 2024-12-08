@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './AuthPage.css';
-import '../App.css';
-import userController from '../controller/UserController'; 
+import userController from '../controller/UserController';
 
 function AuthPage({ setIsAuthenticated, setLoading }) {
     const [isLoginFormVisible, setIsLoginFormVisible] = useState(false);
@@ -13,17 +12,17 @@ function AuthPage({ setIsAuthenticated, setLoading }) {
     return (
         <div className="AuthContainer">
             {!isLoginFormVisible ? (
-            <div className="ButtonContainer">
-                <button  
+                <div className="ButtonContainer">
+                    <button
                         onClick={() => setIsLoginFormVisible(true)} className="AuthButton">Login
-                </button>
-                <button 
+                    </button>
+                    <button
                         onClick={handleRegistration} className="AuthButton">Registrazione
 
-                </button>
-            </div>
-             ) : (
-                <LoginForm setIsAuthenticated={setIsAuthenticated} setLoading={setLoading} setIsLoginFormVisible={setIsLoginFormVisible}/>
+                    </button>
+                </div>
+            ) : (
+                <LoginForm setIsAuthenticated={setIsAuthenticated} setLoading={setLoading} setIsLoginFormVisible={setIsLoginFormVisible} />
             )}
         </div>
     );
@@ -36,30 +35,34 @@ function LoginForm({ setIsAuthenticated, setLoading, setIsLoginFormVisible }) {
     const [errorMessage, setErrorMessage] = useState('');
     const [nickname, setNickname] = useState('');
     const [password, setPassword] = useState('');
+    const [opacizzaLoginForm, setOpacityLoginForm] = useState('');
+    const handleAuthenticateClick = async () => {
 
-    const handleAuthenticateClick = async () =>  {
-        
         setErrorMessage(''); // Resetta eventuali errori precedenti del componente LoginForm
-               
-        setLoading(true); 
+
+        setLoading(true);
+        setOpacityLoginForm(true);
 
         const loginResponse = await userController.login(nickname, password);
-       
+
         if (loginResponse.status) {
             setIsAuthenticated(loginResponse.message); // Passa il messaggio di benvenuto
+            // Salva nel localStorage
+            localStorage.setItem('nickname', nickname);
+            localStorage.setItem('password', password);
         } else {
             setErrorMessage(loginResponse.message);
         }
-        setLoading(false); 
-
+        setLoading(false);
+        setOpacityLoginForm(false);
     };
 
-    const onCancel = ()=>{
+    const onCancel = () => {
         setIsLoginFormVisible(false);
     }
 
     return (
-        <div className="LoginFormContainer">
+        <div className={`LoginFormContainer ${opacizzaLoginForm ? 'opacizza' : ''}`}>
             {errorMessage && <p className="ErrorMessage">{errorMessage}</p>}
             <div className="InputContainer">
                 <label>Nickname:</label>
