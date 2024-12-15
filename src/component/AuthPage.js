@@ -45,6 +45,7 @@ function LoginForm({ setIsAuthenticated, setLoading, setIsLoginFormVisible }) {
             setLoading={setLoading}
             onCancel={handleCancel}
             formTitle="Login"
+            isRegistration={false}
         />
     );
 }
@@ -61,6 +62,7 @@ function RegistrazioneForm({ setIsAuthenticated, setLoading, setIsRegistrazioneF
             setLoading={setLoading}
             onCancel={handleCancel}
             formTitle="Registrazione"
+            isRegistration={true}
         />
     );
 }

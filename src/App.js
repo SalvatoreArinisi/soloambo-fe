@@ -15,13 +15,17 @@ function App() {
     const [showPrivacy, setShowPrivacy] = useState(false);
 
     useEffect(() => {
-        setIsAuthenticated(localStorage.getItem('nickname') !== 'null' && localStorage.getItem('password') !== 'null');
+        setIsAuthenticated(localStorage.getItem('nickname') !== null && localStorage.getItem('password') !== null);
     }, []); 
 
     const handleLogin = (message) => {
         setIsAuthenticated(true); // Imposta lo stato di autenticazione a true
         setLoginMessage(message); // Mostra il messaggio
     };
+
+    const logoutClick = () => {
+        setIsAuthenticated(false);
+    }
 
     return (
         <div className={`App ${isLoading || ambiCaricati ? 'dimmed-background' : ''}`}>
@@ -32,8 +36,9 @@ function App() {
                     className="header-button"
                 >
                     Regolamento
-                </button>           
-                <MobileMenu onRegulationClick={() => setShowPrivacy(true)} />
+                </button>      
+                {isAuthenticated && ( <button className="header-button" onClick={logoutClick} >logout</button> )}
+                <MobileMenu onRegulationClick={() => setShowPrivacy(true)} onLogoutClick = {() => logoutClick()} isAuthenticated={isAuthenticated}/>
             </header>
             {showPrivacy && (
                 <div className="modal">

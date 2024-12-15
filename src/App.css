@@ -31,7 +31,6 @@ header p {
 /* Css header button */ 
 
 .header-button{
-    margin-left: auto; /* Spinge il pulsante il più a destra possibile */
     float: right; /* Float per compatibilità */
     background-color: burlywood;
     color: white

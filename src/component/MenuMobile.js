@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import './MenuMobile.css';
 
-const MobileMenu = ({ onRegulationClick }) => {
+const MobileMenu = ({ onRegulationClick,onLogoutClick,isAuthenticated}) => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
@@ -15,6 +15,11 @@ const MobileMenu = ({ onRegulationClick }) => {
                             Regolamento
                         </a>
                     </li>
+                    {isAuthenticated && (<li>
+                        <a  href="#logout" onClick={onLogoutClick}>
+                            logout
+                        </a>
+                    </li>)}
                 </ul>
             )}
         </div>
@@ -23,6 +28,7 @@ const MobileMenu = ({ onRegulationClick }) => {
 
 MobileMenu.propTypes = {
     onRegulationClick: PropTypes.func.isRequired,
+    onLogoutClick:PropTypes.func.isRequired
 };
 
 export default MobileMenu;

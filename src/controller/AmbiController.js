@@ -1,7 +1,7 @@
 import ApiService from '../services/ApiService';
 
 // Funzione per estrarre gli ambi
-export async function estraiAmbi(setGiocata, setMessage, setMessageError, setLoading, setAmbiCaricati) {
+export async function estraiAmbi(setGiocata, setMessage, setMessageError, setLoading, setAmbiCaricati, setIsAuthenticated) {
     setLoading(true);
     try {
         const data = await ApiService.getAmbi();
