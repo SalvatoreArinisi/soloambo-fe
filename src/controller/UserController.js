@@ -13,6 +13,8 @@ class UserController {
             loginResponse.status = false;
             if(error.status === 404){
                 loginResponse.message = error.response.data;
+            }else if(error.status === 401){
+                loginResponse.message = 'utente non riconosciuto';
             }else{
                 loginResponse.message = 'Servizio non disponibile, riprova più tardi';
             }

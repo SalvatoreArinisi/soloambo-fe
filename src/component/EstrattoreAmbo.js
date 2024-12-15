@@ -22,9 +22,7 @@ function EstrattoreAmbo({ setIsAuthenticated, setLoading, setAmbiCaricati }) {
     };
 
     const autenticatiClick = () => {
-        if (messageError[0] === 401) {//In case of unrecognized use
-            setIsAuthenticated(false);
-        }
+        setIsAuthenticated(false);
     }
 
     return (
@@ -42,17 +40,11 @@ function EstrattoreAmbo({ setIsAuthenticated, setLoading, setAmbiCaricati }) {
                     <button onClick={handleFetchAmbi} style={{
                         display: giocata || messageError[0]? "none" : "block",
                     }}>Estrai Ambi</button>
+                    <button onClick={autenticatiClick} >autenticati</button>
                     <button onClick={reset} style={{
                         display: giocata ? "block" : "none",
                     }}>Pulisci</button>
                 </div>
-            {messageError && (
-                <div>
-                    <p className="messageError">{messageError[1]}</p>
-                    {messageError[0] === 401 && (<button onClick={autenticatiClick} >autenticati</button>)}
-                </div>
-            )}
-
         </div>
     );
 }

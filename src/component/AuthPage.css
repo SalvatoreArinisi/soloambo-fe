@@ -22,7 +22,7 @@
     background-color: #0e180f; /* Effetto hover */
 }
 
-.LoginFormContainer {
+.AuthFormContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
