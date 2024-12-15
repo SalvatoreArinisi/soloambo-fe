@@ -22,6 +22,25 @@ class UserController {
         }
         return loginResponse;
     }
+
+    async registrazione(nickname, password) {
+        let registrazioneResponse = {};
+        try {
+            const response = await ApiService.registrazione(nickname, password);
+            if (response && response.message) {
+                registrazioneResponse.status = true;
+                registrazioneResponse.message = response.message;
+            }
+        } catch (error) {
+            registrazioneResponse.status = false;
+            if(error.status === 404 || error.status === 400){
+                registrazioneResponse.message = error.response.data;
+            }else{
+                registrazioneResponse.message = 'Servizio non disponibile, riprova più tardi';
+            }
+        }
+        return registrazioneResponse;
+    }
 }
 
 const userControllerInstance = new UserController();

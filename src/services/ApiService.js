@@ -38,6 +38,19 @@ class ApiService {
         }
     }
 
+    async registrazione(nickname, password) {
+        try {
+            const response = await axios.post('/api/user/register', {
+                nickname,
+                password,
+            });
+            return response.data;
+        } catch (error) {
+            console.error('Errore durante la chiamata di register:', error);
+            throw error;
+        }
+    }
+
     async getPrivacy() {
         try {
             const response = await axios.get('/privacy.json', {});
